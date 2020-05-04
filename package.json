@@ -1,0 +1,63 @@
+{
+  "name": "stagedrunner",
+  "version": "0.0.1",
+  "description": "run commands on detected packages via staged files",
+  "main": "./lib/index.js",
+  "bin": {
+    "stagedrunner": "bin/stagedrunner"
+  },
+  "scripts": {
+    "dev": "ts-node ./src/index.ts",
+    "start": "node ./lib/index.js",
+    "postinstall": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaanuVazquez/StagedRunner.git"
+  },
+  "keywords": [
+    "staged",
+    "git",
+    "monorepo",
+    "lerna",
+    "yarn",
+    "workspaces",
+    "lint",
+    "run",
+    "commands",
+    "cli"
+  ],
+  "author": "MaanuVazquez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MaanuVazquez/StagedRunner/issues"
+  },
+  "homepage": "https://github.com/MaanuVazquez/StagedRunner#readme",
+  "dependencies": {
+    "@types/meow": "^5.0.0",
+    "@types/node": "^12.12.37",
+    "@types/ora": "^3.2.0",
+    "chalk": "^4.0.0",
+    "meow": "^6.1.1",
+    "ora": "^4.0.4",
+    "simple-git": "^2.2.0",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "prettier": "^2.0.5",
+    "ts-node": "^8.9.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

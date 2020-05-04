@@ -1,0 +1,7 @@
+{
+  "packageManager": "yarn",
+  "packagesDirectory": "packages",
+  "scripts": [
+    "start"
+  ]
+}
