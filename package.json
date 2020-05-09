@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "ts-node ./src/index.ts",
     "start": "node ./lib/index.js",
-    "postinstall": "tsc"
+    "postinstall": "tsc",
+    "lint": "eslint --ext 'ts' ./src && tsc --noEmit"
   },
   "repository": {
     "type": "git",
