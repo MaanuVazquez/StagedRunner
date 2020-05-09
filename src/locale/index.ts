@@ -26,6 +26,8 @@ export default {
   },
   warning: {
     cannotLoadPackageJson: (packageName: string): string =>
-      `${packageName} doesn't appear to contain a package.json file, ignoring it.`
+      `${packageName} doesn't appear to contain a package.json file, ignoring it.`,
+    scriptNotFound: (scriptName: string, packageName: string): string =>
+      `${scriptName} script was not found in ${packageName}, skipping...`
   }
 }

@@ -5,11 +5,14 @@ import { logWarning } from './logger'
 import locales from './locale'
 
 export interface PackageJSON {
-  name: string
-  author: string
-  version: string
-  description: string
-  license: string
+  name?: string
+  author?: string
+  version?: string
+  description?: string
+  license?: string
+  scripts?: {
+    [scriptName: string]: string
+  }
 }
 
 export interface Package {
