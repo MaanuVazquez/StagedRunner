@@ -1,4 +1,5 @@
 import path from 'path'
+import fs from 'fs'
 import { exec } from 'child_process'
 import { logWarning } from './logger'
 
@@ -25,6 +26,14 @@ export interface PackageInfo {
   [packageName: string]: Package
 }
 
+export const readPackageJSON = (directory: string): PackageJSON | null => {
+  try {
+    return JSON.parse(fs.readFileSync(directory, { encoding: 'utf-8' }))
+  } catch (error) {
+    return null
+  }
+}
+
 export const getPackageInfo = (packagesDirectory: string, stagedFiles: string[]): PackageInfo => {
   const notProperPackages: string[] = []
 
@@ -33,13 +42,13 @@ export const getPackageInfo = (packagesDirectory: string, stagedFiles: string[])
 
     const fileWithoutPackageDirectory = file.replace(`${packagesDirectory}/`, '')
     const packageName = fileWithoutPackageDirectory.slice(0, fileWithoutPackageDirectory.indexOf('/'))
+
+    if (notProperPackages.includes(packageName)) return accum
+
     const packageFullDirectory = path.join(process.cwd(), `${packagesDirectory}/${packageName}`)
-    // eslint-disable-next-line
-    const packageJson = require(`${packageFullDirectory}/package.json`)
+    const packageJson = readPackageJSON(`${packageFullDirectory}/package.json`)
 
     if (!packageJson) {
-      if (notProperPackages.includes(packageName)) return accum
-
       logWarning(locales.warning.cannotLoadPackageJson(packageName))
       notProperPackages.push(packageName)
     }
