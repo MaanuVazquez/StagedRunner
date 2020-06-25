@@ -18,7 +18,7 @@ export default {
   },
   info: {
     runningScript: (scriptName: string, packageName: string): string =>
-      `Running script ${scriptName} on package ${packageName}.`
+      `Running script ${scriptName} on package ${packageName}.\n`
   },
   success: {
     scriptRun: (scriptName: string, packageName: string): string =>
@@ -26,8 +26,8 @@ export default {
   },
   warning: {
     cannotLoadPackageJson: (packageName: string): string =>
-      `${packageName} doesn't appear to contain a package.json file, ignoring it.`,
+      `${packageName} doesn't appear to contain a package.json file, ignoring it.\n`,
     scriptNotFound: (scriptName: string, packageName: string): string =>
-      `${scriptName} script was not found in ${packageName}, skipping...`
+      `${scriptName} script was not found in ${packageName}, skipping...\n`
   }
 }
