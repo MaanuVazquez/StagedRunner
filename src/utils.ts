@@ -70,10 +70,10 @@ export const execPackageManagerScript = (
   packageDirectory: string
 ): Promise<string> => {
   return new Promise((resolve, reject) => {
-    return exec(`${packageManager} run ${scriptName}`, { cwd: packageDirectory }, (error, stdout, stderr) => {
-      if (error) return reject(error)
+    return exec(`${packageManager} run ${scriptName}`, { cwd: packageDirectory }, (error, stdout) => {
+      if (error) return reject(stdout)
 
-      return resolve(stdout || stderr)
+      return resolve(stdout)
     })
   })
 }
