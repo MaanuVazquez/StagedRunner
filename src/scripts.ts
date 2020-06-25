@@ -29,7 +29,7 @@ const handleScriptRun = async (
 
     logSuccess(locale.success.scriptRun(script, packageName))
   } catch (error) {
-    console.error(error.message)
+    console.error(error)
     spinner.fail(locale.errors.scriptFailed(script, packageName))
     process.exit(1)
   }
